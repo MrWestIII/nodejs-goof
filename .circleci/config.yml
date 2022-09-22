@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  node: snyk/snyk@1.2.3
+  snyk: snyk/snyk@1.2.3
 
 defaults: &defaults
   docker:
