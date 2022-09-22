@@ -10,8 +10,8 @@ jobs:
       - run: npm ci
       - snyk/scan
 workflows: null
-token-variable:
-                default: SNYK_TOKEN=9142d4af-f6d4-42a0-a331-3a5cfc448316
+snyk auth $SNYK_TOKEN=9142d4af-f6d4-42a0-a331-3a5cfc448316
+
 
 
 
