@@ -26,10 +26,7 @@ jobs:
       - run:
           name: Snyk IaC
           command: snyk iac test --severity-threshold=high || true
-      
-          monitor-on-build: false
-          fail-on-issues: false
-
+     
   
      
 
