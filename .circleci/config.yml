@@ -20,6 +20,12 @@ jobs:
           command: snyk code test --json | snyk-to-html -o code-results.html
       - store_artifacts:
           path: code-results.html
+      - run:
+          name: Snyk Container
+          command: snyk container test --severity-threshold=high csantana/demo-spring:$CIRCLE_SHA1 || true
+      - run:
+          name: Snyk IaC
+          command: snyk iac test --severity-threshold=high || true
   
      
 
