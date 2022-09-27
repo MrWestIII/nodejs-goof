@@ -24,9 +24,7 @@ jobs:
           command: snyk code test --json | snyk-to-html -o code-results.html
       - store_artifacts:
           path: code-results.html
-      - checkout
-  
-          fail-on-issues: false
+    
           
  
      
