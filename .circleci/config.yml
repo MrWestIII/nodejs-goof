@@ -9,6 +9,10 @@ jobs:
       - checkout
       - run: npm ci
       - snyk/scan
+      - snyk/scan:
+          monitor-on-build: false
+          fail-on-issues: false
+
 workflows: null
 
   
