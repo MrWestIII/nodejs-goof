@@ -1,6 +1,4 @@
 version: '2.1'
-orbs:
-  snyk: snyk/snyk@1.2.3
 jobs:
   build:
     docker:
@@ -8,8 +6,6 @@ jobs:
     steps:
       - checkout
       - run: npm ci
-      - snyk/scan
- 
       - run:
           name: Install Snyk
           command: npm install --prefix=$HOME/.local -g snyk
