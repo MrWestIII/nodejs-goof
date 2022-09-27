@@ -24,17 +24,7 @@ jobs:
           command: snyk code test --json | snyk-to-html -o code-results.html
       - store_artifacts:
           path: code-results.html
-      - run:
-          name: Install SnykHTML
-          command: curl -Lo ./snyk.exe "https://static.snyk.io/cli/latest/snyk-win.exe"
-     
-    displayName: 'Snyk install'
-      
-      
-
-    
-          
- 
+  
      
 
 workflows: null
