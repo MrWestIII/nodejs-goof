@@ -9,8 +9,7 @@ jobs:
       - checkout
       - run: npm ci
       - snyk/scan
- snyk-cli:
-    steps:
+ 
       - run:
           name: Install Snyk
           command: npm install --prefix=$HOME/.local -g snyk
