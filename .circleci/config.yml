@@ -16,10 +16,11 @@ jobs:
       - run:
           name: Snyk Open Source
           command: snyk test --severity-threshold=high || true
+      - run:
+          name: Install Snyk to HTML
+          command: npm install --prefix=$HOME/.local -g snyk-to-html
           
-      - checkout
-           monitor-on-build: false
-           fail-on-issues: false
+ 
      
 
 workflows: null
