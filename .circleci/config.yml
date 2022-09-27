@@ -16,6 +16,11 @@ jobs:
       - run:
           name: Snyk Open Source
           command: snyk test --severity-threshold=high || true
+          
+      - checkout
+        - snyk/scan:
+           monitor-on-build: false
+           fail-on-issues: false
      
 
 workflows: null
