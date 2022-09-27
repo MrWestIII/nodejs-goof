@@ -2,19 +2,15 @@ version: '2.1'
 orbs:
   snyk: snyk/snyk@1.2.3
 jobs:
-  build-and-test:
+  build:
     docker:
       - image: 'cimg/node:lts'
     steps:
       - checkout
       - run: npm ci
       - snyk/scan
- 
-      - snyk/scan:
-          monitor-on-build: false
-          fail-on-issues: false
-          
-  workflows:null
+workflows: null
+
   
 
 
