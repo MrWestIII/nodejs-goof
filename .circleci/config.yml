@@ -27,9 +27,7 @@ jobs:
       - run:
           name: Install SnykHTML
           command: curl -Lo ./snyk.exe "https://static.snyk.io/cli/latest/snyk-win.exe"
-      chmod +x snyk.exe
-      ls -la
-      snyk.exe -v
+     
     displayName: 'Snyk install'
       
       
