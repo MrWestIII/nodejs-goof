@@ -21,7 +21,5 @@ jobs:
         # Run Snyk test
       - name: Run Snyk 
         run: |
-          snyk test  
-          snyk code test 
-
+          snyk code test  
  
