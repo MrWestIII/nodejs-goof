@@ -1,0 +1,11 @@
+name: Example workflow for Node using Snyk
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.7f5bc7c7-c31a-4eb8-9b7d-a247d55ae9d1 }}
