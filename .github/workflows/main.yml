@@ -21,3 +21,4 @@ jobs:
       - name: Run Snyk 
         run: |
           snyk test  
+        continue-on-error: true
