@@ -22,4 +22,5 @@ jobs:
       - name: Run Snyk 
         run: |
           snyk test  
+          snyk-to-html
  
