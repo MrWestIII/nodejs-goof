@@ -1,1 +1,33 @@
+name: "Snyk Platform Scan"
 
+on: [push, pull_request]
+
+jobs:
+  Pipeline-Job:
+    # Configure Environment 
+    name: 'Snyk Platform Scan'
+    runs-on: ubuntu-latest
+    env:
+       SNYK_TOKEN: ${{ secrets.7f5bc7c7-c31a-4eb8-9b7d-a247d55ae9d1 }}
+       
+    steps:
+    # Checkout Code
+      - name: Checkout Code
+         uses:actions/checkout@v2
+      
+      # Install and Authenticate to Snyk
+      
+      - name: Install Snyk & Authenticate
+        run: |
+          sudo npm install -g snyk
+          sudo npm install -g snyk-to-html
+          snyk auth ${7f5bc7c7-c31a-4eb8-9b7d-a247d55ae9d1}
+        # Run Snyk Code
+      - name: Run Snyk 
+        run: |
+          snyk code test --sarif > results_code.sarif || true 
+          snyk-to-html -i results_code.sarif -o results_code.html || true 
+          snyk monitor --all-projects --json | snyk-to-html -o results_sca.html || true 
+          snyk iac test . --json | snyk-to-html -o results_iac.html || true 
+        continue-on-error: true
+        
